@@ -1,0 +1,46 @@
+.wrapper {
+  width: 750px;
+  margin-bottom: 50px;
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 15px;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 15px;
+  margin-right: 20px;
+  width: 350px;
+  height: 350px;
+}
+
+.detailsWrapper {
+  width: 300px;
+}
+
+.detailsList {
+  margin-top: 38px;
+}
+
+.detailsListItem {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.titleComments{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.commItem:not(:last-child){
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.commItemText{}
