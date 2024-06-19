@@ -1,23 +1,26 @@
 import { useSelector } from "react-redux";
-import { selectProductList } from "../../Redux/selectors";
-import { Container } from "../Container/Container";
+import { selectCartList, selectProductList } from "../../Redux/selectors";
 import { ProductItem } from "../ProductItem/ProductItem";
-import style from './ProductList.module.css'
+import style from "./ProductList.module.css";
+import { useLocation } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 export const ProductList = () => {
-  const prodList = useSelector(selectProductList);
+  const location = useLocation();
+  const productList = useSelector(selectProductList);
+  const cartList = useSelector(selectCartList);
+  const prodList = location.pathname === "/" ? productList : cartList;
 
   return (
-    <Container>
-      {
-        <ul className={style.list}>
-          {prodList.map((product) => (
-            <li key={product._id} className={style.listItem}>
-              <ProductItem product={product} />
-            </li>
-          ))}
-        </ul>
-      }
-    </Container>
+    <ul className={style.list}>
+      {prodList.map((product) => (
+        <li
+          key={location.pathname === "/" ? product._id : nanoid()}
+          className={style.listItem}
+        >
+          <ProductItem product={product} />
+        </li>
+      ))}
+    </ul>
   );
 };

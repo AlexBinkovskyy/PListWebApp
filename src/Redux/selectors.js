@@ -1,3 +1,5 @@
-export const selectProductList = state => state.products.productList
+export const selectProductList = (state) => state.products.productList;
 
-export const selectIsLoading = state => state.products.isLoading
+export const selectCartList = (state) => state.products.buyedProducts;
+
+export const selectIsLoading = (state) => state.products.isLoading;

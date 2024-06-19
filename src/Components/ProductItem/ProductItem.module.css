@@ -1,4 +1,5 @@
 .wrapper {
+  position: relative;
   width: 750px;
   margin-bottom: 50px;
   display: flex;
@@ -33,14 +34,36 @@
   margin-bottom: 10px;
 }
 
-.titleComments{
-    margin-top: 30px;
-    margin-bottom: 10px;
+.titleComments {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
-.commItem:not(:last-child){
-    width: 100%;
-    margin-bottom: 15px;
+.commItem:not(:last-child) {
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-.commItemText{}
+.addButton {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 120px;
+  border: 1px solid grey;
+  border-radius: 200px;
+  padding: 20px 40px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  transition: transform 0.07s ease-in-out;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.addButton:hover,
+.addButton:focus {
+  transform: scale(1.02);
+}
+
+.addButton:active {
+  transform: scale(0.99);
+}

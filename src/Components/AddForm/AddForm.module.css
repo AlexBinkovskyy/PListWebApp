@@ -1,0 +1,51 @@
+.inputWrapper {
+  position: relative;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 4px;
+}
+
+.input {
+  border: 1px solid grey;
+  width: 350px;
+  padding: 6px;
+  margin-bottom: 3px;
+}
+
+.input::placeholder {
+  color: rgba(128, 128, 128, 0.5);
+}
+
+.errorMsg {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  bottom: -10px;
+}
+.submitButton{
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 200px;
+  padding: 10px 20px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  transition: transform 0.07s ease-in-out;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.addButton:hover,
+.addButton:focus {
+  transform: scale(1.02);
+}
+
+.addButton:active {
+  transform: scale(0.99);
+}
+.submitButton:not(:last-child){
+  margin-right: 40px;
+}

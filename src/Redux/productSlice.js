@@ -5,11 +5,18 @@ const productSlice = createSlice({
   name: "products",
   initialState: {
     productList: [],
+    buyedProducts: [],
     isLoading: false,
   },
   reducers: {
     switchLoading: (state, action) => {
       state.isLoading = action.payload;
+    },
+    setBuyedProducts: (state, action) => {
+      state.buyedProducts = [...state.buyedProducts, action.payload];
+    },
+    removeBuyedProducts: (state, action) => {
+      state.buyedProducts = state.buyedProducts.filter(item => item._id !== action.payload)
     },
   },
   extraReducers: (builder) => {
@@ -27,5 +34,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { switchLoading } = productSlice.actions;
+export const { switchLoading, switchModalOpen, setBuyedProducts, removeBuyedProducts } =
+  productSlice.actions;
 export const productReducer = productSlice.reducer;

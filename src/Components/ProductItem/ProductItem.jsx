@@ -1,7 +1,23 @@
 /* eslint-disable react/prop-types */
 import style from "./ProductItem.module.css";
+import { Modal } from "../../Components/Modals/Modal";
+import { RemoveScroll } from "react-remove-scroll";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { ConfirmModal } from "../Modals/ConfirmModal";
 
-export const ProductItem = ({ product }) => {
+export const ProductItem = ({ product, }) => {
+  const location = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [delModalOpen, setDelModalOpen] = useState(false)
+
+  function toggleOpenModal() {
+    setIsModalOpen(!isModalOpen);
+  }
+  function toggleDeleteConfirm(){
+    setDelModalOpen(!delModalOpen)
+  }
+
   return (
     <div className={style.wrapper}>
       <div className={style.imageWrapper}>
@@ -40,6 +56,33 @@ export const ProductItem = ({ product }) => {
           ))}
         </ul>
       </div>
+      {location.pathname === "/" ? (
+        <button
+          type="button"
+          onClick={toggleOpenModal}
+          className={style.addButton}
+        >
+          Add product
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={toggleDeleteConfirm}
+          className={style.addButton}
+        >
+          Delete from cart
+        </button>
+      )}
+      {isModalOpen && (
+        <RemoveScroll>
+          <Modal product={product} closeModal={toggleOpenModal} />
+        </RemoveScroll>
+      )}
+      {delModalOpen && (
+        <RemoveScroll>
+          <ConfirmModal product={product} closeModal={toggleDeleteConfirm}/>
+        </RemoveScroll>
+      )}
     </div>
   );
 };

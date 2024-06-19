@@ -6,9 +6,10 @@ import { selectIsLoading } from "../../Redux/selectors";
 import { LoaderSpiner } from "../../Components/LoaderSpiner/LoaderSpiner";
 import { ProductList } from "../../Components/ProductList/ProductList";
 
-export const HomePage = () => {
-  const dispatch = useDispatch();
 
+export const HomePage = () => {
+
+  const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
@@ -17,8 +18,8 @@ export const HomePage = () => {
 
   return (
     <div className={style.wrapper}>
-      <h1 style={{visibility:"hidden"}}>Home page</h1>
-      {isLoading ? <LoaderSpiner /> : <ProductList />}
+        <h1 style={{ visibility: "hidden", display: "none" }}>Home page</h1>
+        {isLoading ? <LoaderSpiner /> : <ProductList />}
     </div>
   );
 };
